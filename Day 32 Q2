@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main() {
+    int num, digit, i;
+    int count[10] = {0}; 
+    int maxCount = 0, maxDigit = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num < 0)
+        num = -num; 
+
+    while (num > 0) {
+        digit = num % 10;
+        count[digit]++;
+        num = num / 10;
+    }
+
+    for (i = 0; i < 10; i++) {
+        if (count[i] > maxCount) {
+            maxCount = count[i];
+            maxDigit = i;
+        }
+    }
+
+    printf("Digit that occurs most = %d\n", maxDigit);
+    printf("It appears %d times.\n", maxCount);
+
+    return 0;
+}
